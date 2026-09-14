@@ -1,9 +1,17 @@
 import { TemperatureSensor } from "./TemperatureSensor";
+import { HumiditySensor } from "./HumiditySensor";
 
 export class SensorService {
-    constructor(private sensor: TemperatureSensor) {}
+    constructor(
+        private temperatureSensor: TemperatureSensor,
+        private humiditySensor: HumiditySensor
+    ) {}
 
     getTemperature(): number {
-        return this.sensor.readTemperature();
+        return this.temperatureSensor.readTemperature();
+    }
+
+    getHumidity(): number {
+        return this.humiditySensor.readHumidity();
     }
 }
